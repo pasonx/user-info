@@ -82,9 +82,6 @@
     <update id="updateByExampleSelective" parameterType="map">
         update user
         <set>
-            <if test="record.id != null">
-                id = #{record.id,jdbcType=BIGINT},
-            </if>
             <if test="record.name != null">
                 name = #{record.name,jdbcType=VARCHAR},
             </if>
@@ -107,5 +104,6 @@
                 password = #{record.password,jdbcType=VARCHAR},
             </if>
         </set>
+        where id = #{record.id,jdbcType=BIGINT}
     </update>
 </mapper>
